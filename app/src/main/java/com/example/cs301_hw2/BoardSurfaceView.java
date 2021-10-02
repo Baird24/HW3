@@ -8,7 +8,9 @@
  *
  * Extensions:
  * 1.  you drag the empty tile onto an adjacent tile instead of using two clicks
- * 2.  the seekbar on the side allows you to change teh size of the puzzle from 2X2 to 7X7
+ * 2.  the seekbar on the side allows you to change teh size of the puzzle from 2X2 to 10X10
+ * unlisted 1. Added a seekbar to change the size of each tile
+ * unlisted 2. Added a seekbar to change teh space between each tile
  *
  */
 
@@ -285,17 +287,31 @@ public class BoardSurfaceView extends SurfaceView implements View.OnTouchListene
      */
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-        //set new dimensions and clear the board
-        rectDim = progress;
-        tiles.clear();
-        //add the new numbers in
-        for (int i = 0; i < (rectDim * rectDim); i++){
-            tiles.add(i);
+        if(seekBar.getId() == R.id.numberSquaresBar) {
+            //set new dimensions and clear the board
+            rectDim = progress;
+            tiles.clear();
+            //add the new numbers in
+            for (int i = 0; i < (rectDim * rectDim); i++) {
+                tiles.add(i);
+            }
+            //shuffle the cards and reset the board
+            Collections.shuffle(tiles);
+            solved = false;
+            invalidate();
         }
-        //shuffle the cards and reset the board
-        Collections.shuffle(tiles);
-        solved = false;
-        invalidate();
+
+
+        else if (seekBar.getId() == R.id.rectSize){
+            //changes the size of each rectangle
+            rectSize = progress;
+            invalidate();
+        }
+        else if (seekBar.getId() == R.id.spaceSize){
+            //changes the space between each rectangle
+            spacing = (progress / 100.0);
+            invalidate();
+        }
     }
 
     @Override

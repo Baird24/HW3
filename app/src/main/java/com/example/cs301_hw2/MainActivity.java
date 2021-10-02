@@ -8,7 +8,9 @@
  *
  * Extensions:
  * 1.  you drag the empty tile onto an adjacent tile instead of using two clicks
- * 2.  the seekbar on the side allows you to change teh size of the puzzle from 2X2 to 7X7
+ * 2.  the seekbar on the side allows you to change teh size of the puzzle from 2X2 to 10X10
+ *  * unlisted 1. Added a seekbar to change the size of each tile
+ *  * unlisted 2. Added a seekbar to change teh space between each tile
  *
  */
 
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Give objects on screen variable names
         SeekBar numberSquaresBar = (SeekBar) findViewById(R.id.numberSquaresBar);
+        SeekBar sizeSquaresBar = (SeekBar) findViewById(R.id.rectSize);
+        SeekBar spaceSquaresBar = (SeekBar) findViewById(R.id.spaceSize);
+
         Button resetButton = (Button) findViewById(R.id.resetButton);
         BoardSurfaceView boardView = (BoardSurfaceView) findViewById(R.id.boardSurfaceView);
 
@@ -36,5 +41,7 @@ public class MainActivity extends AppCompatActivity {
         boardView.setOnTouchListener(boardView);
         resetButton.setOnClickListener(boardView);
         numberSquaresBar.setOnSeekBarChangeListener(boardView);
+        sizeSquaresBar.setOnSeekBarChangeListener(boardView);
+        spaceSquaresBar.setOnSeekBarChangeListener(boardView);
     }
 }

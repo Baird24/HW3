@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:max="7"
+                android:max="10"
                 android:min="2"
                 android:progress="4" />
 
@@ -54,7 +54,49 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5" />
+                android:layout_weight="2" />
+
+            <SeekBar
+                android:id="@+id/rectSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:max="400"
+                android:min="50"
+                android:progress="150" />
+
+            <TextView
+                android:id="@+id/rectSizeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Changes size of rectangle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <SeekBar
+                android:id="@+id/spaceSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:max="50"
+                android:min="0"
+                android:progress="25" />
+
+            <TextView
+                android:id="@+id/spaceSizeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Changes the spacing between rectangles" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
         </LinearLayout>
 
     </LinearLayout>
